@@ -109,18 +109,5 @@
       }
    }
 
-# This is examples for the functions
-:if ( $debug ) do={
-   :put "convert test"
-   :put [$ConvertRouterBoardVersion RBVersion=6.49.1 debug=$debug ]
-   :put [$ConvertRouterBoardVersion RBVersion=6.49 debug=$debug ]
-   :put [$ConvertRouterBoardVersion RBVersion=6.48.1 debug=$debug ]
-   :put "compare test"
-   :put [ $CompareRouterBoardVersion RBCUR=6.48.1 RBREQ=6.49.1 ConvertRouterBoardVersion=$ConvertRouterBoardVersion debug=$debug ]
-   :put [ $CompareRouterBoardVersion RBCUR=6.49.3 RBREQ=6.49.1 ConvertRouterBoardVersion=$ConvertRouterBoardVersion debug=$debug ]
-   :put [ $CompareRouterBoardVersion RBCUR=6.48 RBREQ=6.49.1 ConvertRouterBoardVersion=$ConvertRouterBoardVersion debug=$debug ]
-   :put [ $CompareRouterBoardVersion RBCUR=6.49.1 RBREQ=6.49.1 ConvertRouterBoardVersion=$ConvertRouterBoardVersion debug=$debug ]
-   }
-
 }
 /file remove [/file find name=rb-setfw.rsc]
