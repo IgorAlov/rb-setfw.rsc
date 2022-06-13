@@ -7,6 +7,8 @@
 # rqvers please specify required version
 # debug flag will allow to get more verbose level to the output
 #
+# https://github.com/IgorAlov/rb-setfw.rsc
+#
 
 :local debug false
 :local rqvers "6.49.1"
