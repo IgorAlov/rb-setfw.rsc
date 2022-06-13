@@ -5,7 +5,7 @@
 # Copyright Igor Alov (alov.igor@gmail.com)
 #
 # rqvers please specify required version
-# debug flag will allow to get more verbose level
+# debug flag will allow to get more verbose level to the output
 #
 
 :local debug false
@@ -15,7 +15,7 @@
 :local rburl ""
 :local rbact 0
 
- # function to convert versions into shifted digits
+# function is for convert versions into shifted digits
 :local ConvertRouterBoardVersion do={
    :if ( $debug ) do={ :put "Function CONVERR RBVersion: $RBVersion" }
    :local posS 0
@@ -45,6 +45,7 @@
       :error "Not found variable RBVersion"
       }
    }
+
 # function to comparing number of two versions
 :local CompareRouterBoardVersion do={
    #comapring versions
