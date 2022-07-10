@@ -9,20 +9,21 @@ Mikrotik RouterBoard с определенными вресиями прошив
 
 ## Как применить?
 На самом деле все очень просто:
-* Вариант закгрузки и выполнения скрипта прямо из репозитория (если Вас устраивают значения по умолчнию, и роутер имеет доступ к сети интернет) для этого Вам нужно выполнить две команды:
+* Вариант загрузки и выполнения скрипта прямо из репозитория (если Вас устраивают значения по умолчнию, и роутер имеет доступ к сети интернет) для этого Вам нужно выполнить две команды:
 ```bash
 /tool fetch url=https://raw.githubusercontent.com/IgorAlov/rb-setfw.rsc/main/rb-setfw.rsc mode=https ascii=yes keep-result=yes 
 /import rb-setfw.rsc
 ```
-* Загружаете скрипт `git clone https://github.com/IgorAlov/rb-setfw.rsc` в директорию вашего `www` сервера;
-* Выполняете команду на загрузку скрипта:
-   * пример, если Вы используете на вашем сервере https + basic auth:
-      * `/tool fetch url=https://ваш-www-сервер/rb-setfw.rsc mode=https ascii=yes keep-result=yes user="user" password="password"`
-   * пример, для простого http:
-      * `/tool fetch url=https://ваш-www-сервер/rb-setfw.rsc mode=http ascii=yes keep-result=yes`
-* Импортируем загруженный скрипт `/import rb-setfw.rsc`
-* Ну и все, наслаждаемся результатом.
-* Скрипт, после выполнения, должен сам удалится с устройства, однако если Вы хотите его отсавить, то можно закомментировать последню строчку в скрипте `/file remove`
+* Альтернативный вариант использования на локальном сервере:
+	* Загружаете скрипт `git clone https://github.com/IgorAlov/rb-setfw.rsc` в директорию вашего `www` сервера;
+	* Выполняете команду на загрузку скрипта:
+   	* пример, если Вы используете на вашем сервере https + basic auth:
+      	* `/tool fetch url=https://ваш-www-сервер/rb-setfw.rsc mode=https ascii=yes keep-result=yes user="user" password="password"`
+   	* пример, для простого http:
+      	* `/tool fetch url=https://ваш-www-сервер/rb-setfw.rsc mode=http ascii=yes keep-result=yes`
+	* Импортируем загруженный скрипт `/import rb-setfw.rsc`
+	* Ну и все, наслаждаемся результатом.
+	* Скрипт, после выполнения, должен сам удалится с устройства, однако если Вы хотите его отсавить, то можно закомментировать последню строчку в скрипте `/file remove`
 
 ## Для тех кто использует RouterOS API:
 Скрипт, при использовании API, можно загрузить на роутер, и запустить примерно такой конструкцией на PHP:
