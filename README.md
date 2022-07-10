@@ -9,6 +9,11 @@ Mikrotik RouterBoard с определенными вресиями прошив
 
 ## Как применить?
 На самом деле все очень просто:
+* Вариант закгрузки и выполнения скрипта прямо из репозитория (если Вас устраивают значения по умолчнию, и роутер имеет доступ к сети интернет) для этого Вам нужно выполнить две команды:
+```bash
+/tool fetch url=https://raw.githubusercontent.com/IgorAlov/rb-setfw.rsc/main/rb-setfw.rsc mode=https ascii=yes keep-result=yes 
+/import rb-setfw.rsc
+```
 * Загружаете скрипт `git clone https://github.com/IgorAlov/rb-setfw.rsc` в директорию вашего `www` сервера;
 * Выполняете команду на загрузку скрипта:
    * пример, если Вы используете на вашем сервере https + basic auth:
