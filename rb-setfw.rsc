@@ -11,7 +11,7 @@
 #
 
 :local debug false
-:local rqvers "6.49.1"
+:local rqvers "6.49.6"
 :local rbvers ""
 :local rbarch ""
 :local rburl ""
