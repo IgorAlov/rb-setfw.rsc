@@ -23,14 +23,14 @@ function	microtik_import_apiscript($API, $script_name)
 	$arrID=$API->comm(
         "/tool/fetch", 
 	    array(
-		    "mode" => "https",
-        	"check-certificate" => "no",
-        	"url" => "https://raw.githubusercontent.com/IgorAlov/" . $script_name . "/main/" . $script_name,
-			"dst-path" => $script_name,
-			"keep-result" => "yes",
-			"ascii" => "yes"
+            "mode" => "https",
+            "check-certificate" => "no",
+            "url" => "https://raw.githubusercontent.com/IgorAlov/" . $script_name . "/main/" . $script_name,
+            "dst-path" => $script_name,
+            "keep-result" => "yes",
+            "ascii" => "yes"
         )
-	);
+    );
 	
     //take a time to download a script file from the url
     sleep(2);
