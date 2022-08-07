@@ -1,5 +1,4 @@
 <?php
-
 /*
 	This is simple example how to import script to the RouterBoard using PHP.
 
@@ -9,48 +8,40 @@
 			* fork: https://github.com/IgorAlov/routeros-api
 
 */
-require_once('routeros_api.class.php');
+require_once("routeros_api.class.php");
 
 //define your variables of  the router board
-define("ROS_IP","192.168.88.2");
-define("ROS_USER","admin");
-define("ROS_PASS","admin");
+define("ROS_IP", "192.168.88.2");
+define("ROS_USER", "admin");
+define("ROS_PASS", "admin");
 
 function	microtik_import_apiscript($API, $script_name) 
 {
-	if(!isset($API) || $script_name=="") return false;
+    if(!isset($API) || $script_name=="") return false;
 
-   echo "Fetching...\n";
-	$arrID=$API->comm("/tool/fetch", 
-		array(
-			"mode"					=> "https",
-        	"check-certificate"	=> "no",
-        	"url"						=> "https://raw.githubusercontent.com/IgorAlov/".$script_name."/main/".$script_name,
-			"dst-path"				=> $script_name,
-			"keep-result"			=> "yes",
-			"ascii"					=> "yes"
-      )
+    echo "Fetching...\n";
+	$arrID=$API->comm(
+        "/tool/fetch", 
+	    array(
+		    "mode" => "https",
+        	"check-certificate" => "no",
+        	"url" => "https://raw.githubusercontent.com/IgorAlov/" . $script_name . "/main/" . $script_name,
+			"dst-path" => $script_name,
+			"keep-result" => "yes",
+			"ascii" => "yes"
+        )
 	);
 	
-   //take a time to download a script file from the url
-   sleep(2);
+    //take a time to download a script file from the url
+    sleep(2);
 	
-   //Getting id of the downloaded script
-   echo "Getting ID...\n";
-   $arrID=$API->comm("/file/getall", 
-		array(
-			".proplist"=> ".id",
-			"?name"		=> $script_name
-			)
-	);
+    //Getting id of the downloaded script
+    echo "Getting ID...\n";
+    $arrID=$API->comm("/file/getall", array(".proplist" => ".id", "?name" => $script_name));
 	
-   echo "Importing....\n";
-   if(isset($arrID["0"][".id"]))
-		$arrID=$API->comm("/import", 
-	  		array(
-				"file-name"		=> $script_name
-				)
-		);
+    echo "Importing....\n";
+    if(isset($arrID["0"][".id"]))
+	    $arrID=$API->comm("/import", array("file-name" => $script_name));
 	else echo "unable to get script id.\n";
 
    return true;
@@ -60,9 +51,9 @@ $API = new RouterosAPI();
 
 echo "connecting...\n";
 if($API->connect(ROS_IP, ROS_USER, ROS_PASS)) {
-   echo "Connected to [".ROS_IP."]\n";
-   echo "Import ".(microtik_import_apiscript($API, "rb-setfw.rsc")?"Success":"Fail")."\n";
+   echo "Connected to [" . ROS_IP . "]\n";
+   echo "Import " . (microtik_import_apiscript($API, "rb-setfw.rsc") ? "Success" : "Fail") . "\n";
    $API->disconnect();   
-} else echo "can't to connect to IP [".ROS_IP."]";
+} else echo "can't to connect to IP [" . ROS_IP . "]";
 
 echo "done.\n";
