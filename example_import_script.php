@@ -17,7 +17,7 @@ define("ROS_PASS", "admin");
 
 function microtik_import_apiscript($API, $script_name) 
 {
-    if(!isset($API) || $script_name=="") return false;
+    if(!isset($API) || $script_name == "") return false;
 
     echo "Fetching...\n";
 	$arrID=$API->comm(
