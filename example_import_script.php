@@ -62,7 +62,7 @@ $API = new RouterosAPI();
 echo "connecting...\n";
 if($API->connect(ROS_IP, ROS_USER, ROS_PASS))    
    {
-   echo "Connectd to [".ROS_IP."]\n";
+   echo "Connected to [".ROS_IP."]\n";
    echo "Import ".(microtik_import_apiscript($API,"rb-setfw.rsc")?"Success":"Fail")."\n";
    $API->disconnect();   
    }
