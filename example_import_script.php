@@ -15,7 +15,7 @@ define("ROS_IP", "192.168.88.2");
 define("ROS_USER", "admin");
 define("ROS_PASS", "admin");
 
-function	microtik_import_apiscript($API, $script_name) 
+function microtik_import_apiscript($API, $script_name) 
 {
     if(!isset($API) || $script_name=="") return false;
 
