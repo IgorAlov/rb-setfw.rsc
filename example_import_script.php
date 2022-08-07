@@ -1,7 +1,7 @@
 <?php
 
 /*
-	This is simple excample how to import script to the RouterBoard using PHP.
+	This is simple example how to import script to the RouterBoard using PHP.
 
 	required library routeros_api.class.php
 		class could be download from:
