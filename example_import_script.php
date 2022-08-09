@@ -1,6 +1,6 @@
 <?php
 /*
-	This is simple example how to import script to the RouterBoard using PHP.
+	This is simple example that shows how to download and import script into to the RouterBoard using PHPapi.
 
 	required library routeros_api.class.php
 		class could be download from:
@@ -10,7 +10,7 @@
 */
 require_once("routeros_api.class.php");
 
-//define your variables of  the router board
+//define your variables of the router board
 define("ROS_IP", "192.168.88.2");
 define("ROS_USER", "admin");
 define("ROS_PASS", "admin");
