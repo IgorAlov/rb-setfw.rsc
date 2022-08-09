@@ -1,6 +1,6 @@
 <?php
 /*
-	This is simple example that shows how to download and import script into to the RouterBoard using PHPapi.
+	This is simple example that shows how to download and import script into to the RouterBoard using RouterOS API.
 
 	required library routeros_api.class.php
 		class could be download from:
